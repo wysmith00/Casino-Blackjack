@@ -14,7 +14,7 @@ The object of the game is to be to closest to 21 while you compete against the d
 4. Dealers cards are then revealed. Dealer must then play their hand. If the dealers cards ever equate to a number between 17-21, their round is over. If they go over 21, the Dealer then busts and the round is over.
 5. If both the Players and the Dealers cards are less than or equal to 21, they then compare hands to see who has the higher hand
 6. The loser of the hand loses the round AND loses their money.
-7. If you are dealt a Blackjack (Ace and 10) you automatically win and you recieve 1.5% the amount you bet
+7. If you are dealt a Blackjack (Ace and 10) you automatically win and you recieve 150% the amount you bet
 8. If both the Dealer and the Players hands equate to the same value, it is a Push (Tie game), and you neither win nor lose your money.
 9. Player then decides if they would like to continue playing. Play again?
 
