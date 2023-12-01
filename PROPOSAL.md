@@ -16,14 +16,14 @@ Stretch Goals:
 3) The card deck should have a royal appearence, looking expensive
 
 
-|  Thursday |   | Create Proposal          |   |   |   |   |   |   |
-|:---------:|---|--------------------------|---|---|---|---|---|---|
-| Friday    |   | create html, script, css |   |   |   |   |   |   |
-| Saturday  |   | create basic scaffolding |   |   |   |   |   |   |
-| Sunday    |   | add functionality        |   |   |   |   |   |   |
-| Monday    |   | add style                |   |   |   |   |   |   |
-| Tuesday   |   | finalize mvp's           |   |   |   |   |   |   |
-| Wednesday |   | work on stretch goals    |   |   |   |   |   |   |
-| Thursday  |   | work on icebox items     |   |   |   |   |   |   |
-| Friday    |   | presentation day         |   |   |   |   |   |   |
-|           |   |                          |   |   |   |   |   |   |
+|  Thursday |   | create proposal                                                                                                | done |   |  Blockers:          |   |   | Notes:                    |
+|:---------:|---|----------------------------------------------------------------------------------------------------------------|------|---|---------------------|---|---|---------------------------|
+| Friday    |   | create html, css, script                                                                                       |      |   |                     |   |   |                           |
+| Saturday  |   | create rough outline code/scaffolding                                                                          |      |   |                     |   |   |                           |
+| Sunday    |   | functionality, create click listeners and buttons for playing. Including the random number generator for cards |      |   |                     |   |   |                           |
+| Monday    |   | work on functionality continued, start to style cards/background                                               |      |   |                     |   |   |                           |
+| Tuesday   |   | finalize mvps, as well at make sure its ready for deployment                                                   |      |   |                     |   |   |                           |
+| Wednesday |   | Deployment day, also check on stretch goals                                                                    |      |   |                     |   |   |                           |
+| Thursday  |   | continue stretch goals                                                                                         |      |   |                     |   |   |                           |
+| Friday    |   | presentation day/ready to rock                                                                                 |      |   |                     |   |   |                           |
+|           |   |                                                                                                                |      |   |                     |   |   |                           |
