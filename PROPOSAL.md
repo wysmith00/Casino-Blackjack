@@ -14,4 +14,16 @@ Stretch Goals:
 1) An image for when the Player scores a BlackJack 
 2) background sound/casino white noise to give the audience an immersive experience
 3) The card deck should have a royal appearence, looking expensive
-4
+
+
+|  Thursday |   | Create Proposal          |   |   |   |   |   |   |
+|:---------:|---|--------------------------|---|---|---|---|---|---|
+| Friday    |   | create html, script, css |   |   |   |   |   |   |
+| Saturday  |   | create basic scaffolding |   |   |   |   |   |   |
+| Sunday    |   | add functionality        |   |   |   |   |   |   |
+| Monday    |   | add style                |   |   |   |   |   |   |
+| Tuesday   |   | finalize mvp's           |   |   |   |   |   |   |
+| Wednesday |   | work on stretch goals    |   |   |   |   |   |   |
+| Thursday  |   | work on icebox items     |   |   |   |   |   |   |
+| Friday    |   | presentation day         |   |   |   |   |   |   |
+|           |   |                          |   |   |   |   |   |   |
