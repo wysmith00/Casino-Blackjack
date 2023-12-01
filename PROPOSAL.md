@@ -8,7 +8,7 @@ MVP Goals:
 3) As a player I want there to a be a click function for my chioces so I know they've been selected
 4) As a player, I want there to be a play again option when all game choices are exhausted and the round is over
 5) As a player I want the UI to be engaging like a casino, pleasant for the Player and wanting them to keep participating. 
-6) As a player
+
 
 Stretch Goals: 
 1) An image for when the Player scores a BlackJack 
