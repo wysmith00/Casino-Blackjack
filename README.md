@@ -19,15 +19,15 @@ The object of the game is to be to closest to 21 while you compete against the d
 9. Player then decides if they would like to continue playing. Play again?
 
 
-MVP: an animated image of "BLACKJACk" when you hit blackjack
-    An image/message telling you if you if its a "win" or "bust"
-    click buttons for "hit", "stay", and "double down"
-    create a "credit" system for winning
-    Sound for Blackjack? (horns/triumphant sounds)
-    background will look to be a blackjack table 
-    Possibily may have casino sounds/white noise playing in the background while the game unfolds, to give immersive experience
-    Annimated Pit-boss that tries to throw you out like it's Robert DiNiro in Casino (just kidding)
-    annimate the card deck to look expensive (Venetian-like card deck)
+MVP: 1) an animated image of "BLACKJACk" when you hit blackjack
+     2) An image/message telling you if you if its a "win" or "bust"
+     3) click buttons for "hit", "stay", and "double down"
+     4) create a "credit" system for winning
+     5) Sound for Blackjack? (horns/triumphant sounds)
+     6) background will look to be a blackjack table 
+     7) Possibily may have casino sounds/white noise playing in the background while the game unfolds, to give immersive experience
+     8) Annimated Pit-boss that tries to throw you out like it's Robert DiNiro in Casino (just kidding)
+     9) annimate the card deck to look expensive (Venetian-like card deck)
     
     
 
