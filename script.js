@@ -1,18 +1,17 @@
 
 // adding the card deck and shuffle feature //
-function makeDeck()
+function makeDeck() {
     let values = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"];
     let suits = ["Diamonds", "Spades", "Hearts", "Clubs"];
     let deck = [];
 
     for (let suit of suits) {
         for (let value of values) {
-            deck.push(`${value}` of `${suit}`);
+            deck.push(`${value} of ${suit}`);
         }
     }
 
     return deck;
-
 }
 
 function getShuffledDeck() {
@@ -63,19 +62,34 @@ checkForBlackjack();
 function drawCard() {
     return deck.pop();
 }
-
 //function to calculate hands of player and dealer//
 function calculateScores() {
     playerScore = calculateScore(playerHand);
     dealerScore = calculateScore(dealerHand);
-}
-
-function calculateScore(hand) {
+}function calculateScore(hand) {
     let score = 0;
     let hasAce = false;
+}
+    for (let card of hand) {
+        const value = card;
+        if (value === "J" || if value === "Q" || if value == "K") {
+            score += 10;
+        } else if (value === "A") {
+            score += 11;
+//Ace is assumed to equal to 11 at this point//
+            hasAce = true;
+        } else {
+            score += parseInt(value);
+        }
+
+        if (hasAce && score > 21) {
+    score -= 10;
+}
+return score;
+}
 
     
-}
+
 
 
 
@@ -83,7 +97,7 @@ function calculateScore(hand) {
 
 //DOM variables//
 const playerHandElement = document.getElementById('player-hand');
-const playerHandElement = document.getElementById('dealer-hand');
+const dealerHandElement = document.getElementById('dealer-hand');
 const messageElement = document.getElementById('message');
 const dealButton = document.getElementById('deal-button');
 const hitButton = document.getElementById('hit-button');
