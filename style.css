@@ -9,13 +9,13 @@ button {
 .hand {
     display: flex;
     gap: 12px;
-    margin-bottom; 15px;
+    margin-bottom: 15px;
 }
 
 .card {
     width: 55px;
-    height: 90 px;
-    border: 1px solid #000
+    height: 90px;
+    border: 1px solid #000;
     text-align: center;
     line-height: 90px;
     font-size: 16px;

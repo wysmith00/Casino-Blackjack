@@ -20,7 +20,16 @@ function shuffledDeck() {
 }
         return deck;
 }
+function drawCard() {
+    return deck.pop();
+}
 
+function updateUI() {
+    playerHandElement.textContent = "Player Hand: " + playerHand.join(", ");
+    dealerHandElement.textContent = "Dealer Hand: " + dealerHand.join(", ");
+    document.getElementById("player-score").textContent = "Player Score: " + playerScore;
+    document.getElementById("dealer-score").textContent = "Dealer Score: " + dealerScore;
+}
 //game variables//
 let deck = shuffledDeck();
 let playerHand = [];
@@ -37,17 +46,28 @@ const messageElement = document.getElementById('message');
 const dealButton = document.getElementById('deal-button');
 const hitButton = document.getElementById('hit-button');
 const stayButton = document.getElementById('stay-button');
+const startButton = document.getElementById('start-button');
+console.log(startButton)
 
 //eventlisteners to deploy//
 dealButton.addEventListener('click', deal);
-hitButton.addEventListener('click', hit);
-stayButton.addEventListener('click', stay);
+// hitButton.addEventListener('click', hit);
+// stayButton.addEventListener('click', stay);
+startButton.addEventListener('click', startGame);
 
-
-const shuffledDeck = getShuffledDeck(); {
-console.log(shuffledDeck);
+function startGame() {
+    deck = shuffledDeck();
+    playerHand = [];
+    dealerHand = [];
+    playerScore = 0;
+    dealerScore = 0;
+    gameInProgress = false;
+    gameOver = false;
+    console.log({
+        deck, playerHand, dealerHand, playerScore, dealerScore, gameInProgress, gameOver
+    })
+    updateUI();
 }
-
 
 //deal out cards with deal function//
 
@@ -69,9 +89,13 @@ function deal() {
         playerHand.push(drawCard());
         dealerHand.push(drawCard());
 }
-function hit () {
+    calculateScores();
+    updateUI();
+
+
+function hit() {
     if (gameInProgress) {
-        const = newCard = drawCard();
+        const newCard = drawCard();
         playerHand.push(newCard);
         
         calculateScores();
@@ -85,16 +109,27 @@ function hit () {
         console.log('The game is not in progress');
     }
 }
+function stay() {
+    if (gameInProgress) {
+        dealerTurn();
+        endRound();
+    } else {
+        console.log("The game is not in progress");
+    }
+    }
+}
 //function to calculate hands of player and dealer//
 function calculateScores() {
     playerScore = calculateScore(playerHand);
     dealerScore = calculateScore(dealerHand);
-}function calculateScore(hand) {
+}  
+
+function calculateScore(hand) {
     let score = 0;
     let hasAce = false;
-}
+
     for (let card of hand) {
-        const value = card;
+        const value = card.split("")[0];
         if (value === "J" || value === "Q" || value == "K") {
             score += 10;
         } else if (value === "A") {
@@ -121,6 +156,7 @@ function checkForBlackjack() {
         console.log("Dealer has Blackjack, Game Over");
         endRound();
     }
+}
 
 function dealerTurn() {
     if (dealerScore < 17) {
@@ -173,21 +209,14 @@ if(gameOver) {
     messageElement.textContent = "Click 'Deal' to try your luck again";
 }
 
-function endRound() {
-    gameInProgress = false;
-    gameOver = true;
-
 calculateScores();
 updateUI();
 }
   
 let gameStarted = false;
-let gameOver = false;
 // makeDeck iuses loops to iterate each combination in the array to cover all 52 possible combinations to create the cardDeck array//
 
 
-//eventlisteners to deploy//
-dealButton.addEventListener('click', deal);
-hitButton.addEventListener('click', hit);
-stayButton.addEventListener('click', stay);
+startGame()
+
 
