@@ -13,13 +13,13 @@ The object of the game is to be to closest to 21 while you compete against the d
 3. If neither the Dealers or the Players cards equate to 21, the Player then has 3 options (Hit, Stay, Double-Down). The Player ends their turn by deciding to "Stay" or having cards equating to 21. Again, if Players cards ever go over 21, they lose, and the round is immediately over.
 4. Dealers cards are then revealed. Dealer must then play their hand. If the dealers cards ever equate to a number between 17-21, their round is over. If they go over 21, the Dealer then busts and the round is over.
 5. If both the Players and the Dealers cards are less than or equal to 21, they then compare hands to see who has the higher hand
-6. The loser of the hand loses the round AND loses their money.
-7. If you are dealt a Blackjack (Ace and 10) you automatically win and you recieve 150% the amount you bet
+6. The loser of the hand loses the round.
+7. If you are dealt a Blackjack (Ace and 10) you automatically win
 8. If both the Dealer and the Players hands equate to the same value, it is a Push (Tie game), and you neither win nor lose your money.
 9. Player then decides if they would like to continue playing. Play again?
 
 
-MVP: 1) an animated image of "BLACKJACk" when you hit blackjack
+MVP:
      2) An image/message telling you if you if its a "win" or "bust"
      3) click buttons for "hit", "stay", and "double down"
      4) create a "credit" system for winning

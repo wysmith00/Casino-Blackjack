@@ -1,4 +1,4 @@
-Project Choice : Casino-Blackjack
+Project Choice : Blackjack
 
 Project Description: My game choice is Blackjack. Blackjack is a strategy card game where you try your luck against the Dealer to win some credits and come out on top. Card number totals of the players hand will be shown the entirity of the game, while one of dealers cards will be shown, and second card revealed after the Players turn. Game results will show automatically at the end of the round, whenever a Blackjack is presented, or if the Player or Dealer "bust". 
 

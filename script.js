@@ -20,17 +20,13 @@ function getShuffledDeck() {
         const j = Math.floor(Math.random() * (i + 1));
         [deck[i], deck[j]] = [deck[j], deck[i]];
 }
-
-    return deck;
+        return deck;
 }
 
 const shuffledDeck = getShuffledDeck(); {
 console.log(shuffledDeck);
 }
 
-
-let gameStarted = false;
-let gameOver = false;
 
 //deal out cards with deal function//
 
@@ -52,13 +48,6 @@ function deal() {
         playerHand.push(drawCard());
         dealerHand.push(drawCard());
 }
-
-//calculate first round scores//
-calculateScore();
-updateUI();
-//Check for 21 or Blackjack//
-checkForBlackjack();
-//this will allow you to draw a card when button is pressed//
 function drawCard() {
     return deck.pop();
 }
@@ -72,7 +61,7 @@ function calculateScores() {
 }
     for (let card of hand) {
         const value = card;
-        if (value === "J" || if value === "Q" || if value == "K") {
+        if (value === "J" || value === "Q" || value == "K") {
             score += 10;
         } else if (value === "A") {
             score += 11;
@@ -81,18 +70,59 @@ function calculateScores() {
         } else {
             score += parseInt(value);
         }
-
+        
         if (hasAce && score > 21) {
     score -= 10;
 }
 return score;
+calculateScore();
+updateUI();
+}
+//check for blackjack//
+function checkForBlackjack() {
+    if (playerScore === 21) {
+        console.log("WINNER WINNER CHICKEN DINNER, THATS A BLACKJACK");
+        endRound();
+    } else if (dealerScore === 21) {
+        console.log("Dealer has Blackjack, Game Over");
+        endRound();
+    }
+function updateUI() {
+//shows the players hand//
+    playerHandElement.textContent = "Player Hand: " + playerHand.join(", ");
+const visableDealerHand = gameInProgress ? [dealerHand[0], "?"] : dealerHand;
+dealerHandElement.textContent = "Dealers Hand: " + visableDealerHand.join(", ");
+//scores are shown//
+document.getElementById("player-score").textContent = "Player Score: " + playerScore;
+document.getElementById("dealer-score").textContent = "Dealer Score: " + dealerScore;
+//Game Message shown//
+if(gameOver) {
+    if(playerScore > 21) {
+        messageElement.textContent = "Thats a bust, Game Over";
+    } else if (dealerScore > 21) {
+        messageElement.textContent = "Dealer busts, YOU WIN";
+    } else if (playerScore > dealerScore) {
+        messageElement.textContent = "Congrats you won!";
+    } else if (playerScore < dealerScore) {
+        messageElement.textContent = "Dealer has high card, you lose";
+    } else if (playerScore === dealerScore) {
+        messageElement.textContent = "Thats a push, tie game";
+    }
+} else if (gameInProgress) {
+    messageElement.textContent = "pssst...you are in a game still";
+} else {
+    messageElement.textContent = "Click 'Deal' to try your luck again";
 }
 
-    
-
-
-
-
+function endRound() {
+    gameInProgress = false;
+    gameOver = true;
+}
+calculateScores();
+updateUI();
+  
+let gameStarted = false;
+let gameOver = false;
 // makeDeck iuses loops to iterate each combination in the array to cover all 52 possible combinations to create the cardDeck array//
 
 //DOM variables//
@@ -101,20 +131,18 @@ const dealerHandElement = document.getElementById('dealer-hand');
 const messageElement = document.getElementById('message');
 const dealButton = document.getElementById('deal-button');
 const hitButton = document.getElementById('hit-button');
-const standButton = document.getElementById('stand-button');
+const stayButton = document.getElementById('stay-button');
 
 //gamevariables//
-const deck = getShuffledDeck();
+let deck = getShuffledDeck();
 let playerHand = [];
 let dealerHand = [];
 let playerScore = 0;
 let dealerScore = 0;
 let gameInProgress = false;
-let gameStarted = 
-let gameOver = 
 
 //eventlisteners to deploy//
 dealButton.addEventListener('click', deal);
 hitButton.addEventListener('click', hit);
-standButton.addEventListener('click', stand);
+stayButton.addEventListener('click', stay);
 

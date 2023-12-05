@@ -1,0 +1,12 @@
+body {
+    font-family: sans-serif;
+}
+
+button {
+    margin-bottom: 10px;
+}
+
+#DealerHand, #PlayerHand {
+    display: flex;
+    gap: 10px;
+}
