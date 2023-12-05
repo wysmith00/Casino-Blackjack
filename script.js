@@ -1,5 +1,3 @@
-
-// adding the card deck and shuffle feature //
 function makeDeck() {
     let values = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"];
     let suits = ["Diamonds", "Spades", "Hearts", "Clubs"];
@@ -14,7 +12,7 @@ function makeDeck() {
     return deck;
 }
 
-function getShuffledDeck() {
+function shuffledDeck() {
     const deck = makeDeck();
     for (let i = deck.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -22,6 +20,29 @@ function getShuffledDeck() {
 }
         return deck;
 }
+
+//game variables//
+let deck = shuffledDeck();
+let playerHand = [];
+let dealerHand = [];
+let playerScore = 0;
+let dealerScore = 0;
+let gameInProgress = false;
+let gameOver = false;
+
+//DOM variables//
+const playerHandElement = document.getElementById('player-hand');
+const dealerHandElement = document.getElementById('dealer-hand');
+const messageElement = document.getElementById('message');
+const dealButton = document.getElementById('deal-button');
+const hitButton = document.getElementById('hit-button');
+const stayButton = document.getElementById('stay-button');
+
+//eventlisteners to deploy//
+dealButton.addEventListener('click', deal);
+hitButton.addEventListener('click', hit);
+stayButton.addEventListener('click', stay);
+
 
 const shuffledDeck = getShuffledDeck(); {
 console.log(shuffledDeck);
@@ -48,8 +69,21 @@ function deal() {
         playerHand.push(drawCard());
         dealerHand.push(drawCard());
 }
-function drawCard() {
-    return deck.pop();
+function hit () {
+    if (gameInProgress) {
+        const = newCard = drawCard();
+        playerHand.push(newCard);
+        
+        calculateScores();
+        updateUI();
+
+        if (playerScore > 21) {
+            console.log('Thats a bust, please try again!');
+            endRound();
+        }
+    } else {
+        console.log('The game is not in progress');
+    }
 }
 //function to calculate hands of player and dealer//
 function calculateScores() {
@@ -87,7 +121,32 @@ function checkForBlackjack() {
         console.log("Dealer has Blackjack, Game Over");
         endRound();
     }
-function updateUI() {
+
+function dealerTurn() {
+    if (dealerScore < 17) {
+        dealerHand.push(drawCard());
+    }
+    calculateScores();
+    updateUI();
+}
+
+function endRound() {
+    gameInProgress = false;
+    gameOver = true;
+    calculateScores();
+    updateUI();
+}
+if(playerScore > 21) {
+    messageElement.textContent = "Thats a bust, Game Over";
+} else if (dealerScore > 21) {
+    messageElement.textContent = "Dealer busts, YOU WIN";
+} else if (playerScore > dealerScore) {
+    messageElement.textContent = "Congrats you won!";
+} else if (playerScore < dealerScore) {
+    messageElement.textContent = "Dealer has high card, you lose";
+} else if (playerScore === dealerScore) {
+    messageElement.textContent = "Thats a push, tie game";
+}
 //shows the players hand//
     playerHandElement.textContent = "Player Hand: " + playerHand.join(", ");
 const visableDealerHand = gameInProgress ? [dealerHand[0], "?"] : dealerHand;
@@ -117,29 +176,15 @@ if(gameOver) {
 function endRound() {
     gameInProgress = false;
     gameOver = true;
-}
+
 calculateScores();
 updateUI();
+}
   
 let gameStarted = false;
 let gameOver = false;
 // makeDeck iuses loops to iterate each combination in the array to cover all 52 possible combinations to create the cardDeck array//
 
-//DOM variables//
-const playerHandElement = document.getElementById('player-hand');
-const dealerHandElement = document.getElementById('dealer-hand');
-const messageElement = document.getElementById('message');
-const dealButton = document.getElementById('deal-button');
-const hitButton = document.getElementById('hit-button');
-const stayButton = document.getElementById('stay-button');
-
-//gamevariables//
-let deck = getShuffledDeck();
-let playerHand = [];
-let dealerHand = [];
-let playerScore = 0;
-let dealerScore = 0;
-let gameInProgress = false;
 
 //eventlisteners to deploy//
 dealButton.addEventListener('click', deal);
