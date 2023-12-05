@@ -20,7 +20,7 @@ function shuffledDeck() {
 }
         return deck;
 }
-function drawCard() {
+function drawCard(deck) {
     return deck.pop();
 }
 
@@ -86,16 +86,18 @@ function deal() {
     dealerScore = 0;
     //Two cards get dealt to the player and dealer//
     for (let i = 0; i < 2; i++) {
-        playerHand.push(drawCard());
-        dealerHand.push(drawCard());
-}
+        playerHand.push(drawCard(deck));
+        dealerHand.push(drawCard(deck));
+    }
+    
     calculateScores();
     updateUI();
 
 
+
 function hit() {
     if (gameInProgress) {
-        const newCard = drawCard();
+        const newCard = drawCard(deck);
         playerHand.push(newCard);
         
         calculateScores();
@@ -108,6 +110,7 @@ function hit() {
     } else {
         console.log('The game is not in progress');
     }
+    calculateScores();
 }
 function stay() {
     if (gameInProgress) {
@@ -129,8 +132,8 @@ function calculateScore(hand) {
     let hasAce = false;
 
     for (let card of hand) {
-        const value = card.split("")[0];
-        if (value === "J" || value === "Q" || value == "K") {
+        const value = card.split(" ")[0];
+        if (value === "J" || value === "Q" || value === "K") {
             score += 10;
         } else if (value === "A") {
             score += 11;
@@ -140,12 +143,16 @@ function calculateScore(hand) {
             score += parseInt(value);
         }
         
-        if (hasAce && score > 21) {
-    score -= 10;
+        while (hasAce && score > 21) {
+        score -= 10;
+        hasAce = false;
 }
+
 return score;
-calculateScore();
+
+calculateScores();
 updateUI();
+
 }
 //check for blackjack//
 function checkForBlackjack() {
