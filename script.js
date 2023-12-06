@@ -51,7 +51,7 @@ console.log(startButton)
 
 //eventlisteners to deploy//
 dealButton.addEventListener('click', deal);
-// hitButton.addEventListener('click', hit);
+
 // stayButton.addEventListener('click', stay);
 startButton.addEventListener('click', startGame);
 
@@ -88,10 +88,11 @@ function deal() {
     for (let i = 0; i < 2; i++) {
         playerHand.push(drawCard(deck));
         dealerHand.push(drawCard(deck));
-    }
+    
     
     calculateScores();
     updateUI();
+    }
 
 
 
@@ -170,6 +171,7 @@ function dealerTurn() {
         dealerHand.push(drawCard());
     }
     calculateScores();
+    checkForBlackjack();
     updateUI();
 }
 

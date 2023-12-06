@@ -19,7 +19,11 @@ The object of the game is to be to closest to 21 while you compete against the d
 9. Player then decides if they would like to continue playing. Play again?
 
 
+<<<<<<< HEAD
 MVP:
+=======
+MVP: 1) an animated image of "BLACKJACK" when you hit blackjack
+>>>>>>> 2177bd088760a042cb5b0b252b99eeb55b120091
      2) An image/message telling you if you if its a "win" or "bust"
      3) click buttons for "hit", "stay", and "double down"
      4) create a "credit" system for winning

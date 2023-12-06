@@ -8,7 +8,7 @@ MVP Goals:
 3) As a player I want there to a be a click function for my chioces so I know they've been selected
 4) As a player, I want there to be a play again option when all game choices are exhausted and the round is over
 5) As a player I want the UI to be engaging like a casino, pleasant for the Player and wanting them to keep participating. 
-6) As a player
+
 
 Stretch Goals: 
 1) An image for when the Player scores a BlackJack 
@@ -16,6 +16,7 @@ Stretch Goals:
 3) The card deck should have a royal appearence, looking expensive
 
 
+<<<<<<< HEAD
 | Thursday |  | create proposal | done |  |  Blockers:          |  |  | Notes:                    |
 |:---:|---|---|---|---|---|---|---|---|
 | Friday |  | create html, css, script |  |  |  |  |  |  |
@@ -27,3 +28,16 @@ Stretch Goals:
 | Thursday |  | continue stretch goals  |  |  |  |  |  |  |
 | Friday |  | presentation day/ready to rock |  |  |  |  |  |  |
 |  |  |  |  |  |  |  |  |  |
+=======
+|  Thursday |   | create proposal                                                                                                | done |   |  Blockers:          |   |   | Notes:                    |
+|:---------:|---|----------------------------------------------------------------------------------------------------------------|------|---|---------------------|---|---|---------------------------|
+| Friday    |   | create html, css, script                                                                                       |      |   |                     |   |   |                           |
+| Saturday  |   | create rough outline code/scaffolding                                                                          |      |   |                     |   |   |                           |
+| Sunday    |   | functionality, create click listeners and buttons for playing. Including the random number generator for cards |      |   |                     |   |   |                           |
+| Monday    |   | work on functionality continued, start to style cards/background                                               |      |   |                     |   |   |                           |
+| Tuesday   |   | finalize mvps, as well at make sure its ready for deployment                                                   |      |   |                     |   |   |                           |
+| Wednesday |   | Deployment day, also check on stretch goals                                                                    |      |   |                     |   |   |                           |
+| Thursday  |   | continue stretch goals                                                                                         |      |   |                     |   |   |                           |
+| Friday    |   | presentation day/ready to rock                                                                                 |      |   |                     |   |   |                           |
+|           |   |                                                                                                                |      |   |                     |   |   |                           |
+>>>>>>> 2177bd088760a042cb5b0b252b99eeb55b120091
