@@ -1,23 +1,24 @@
 body {
     font-family: sans-serif;
     background-color: maroon;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+#flex-box-blackjack {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
 }
 
 button {
-    margin-bottom: 10px;
+    padding: 10px 20px;
+    font-size: 20 px;
+    margin-bottom: 0 15px;
 }
 
-.hand {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 15px;
-}
-
-.card {
-    width: 55px;
-    height: 90px;
-    border: 1px solid #000;
-    text-align: center;
-    line-height: 90px;
-    font-size: 16px;
+#player-box, #dealer-box {
+    border: 2px black;
+    padding: 10px;
 }
