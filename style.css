@@ -1,4 +1,7 @@
 body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     font-family: sans-serif;
     background-color: maroon;
     height: 100vh;
@@ -6,19 +9,37 @@ body {
     justify-content: center;
 }
 
-#flex-box-blackjack {
+.hand {
     display: flex;
     justify-content: space-around;
-    margin-bottom: 20px;
+    width: 100%;
 }
 
 button {
     padding: 10px 20px;
     font-size: 20 px;
-    margin-bottom: 0 15px;
+    margin-bottom: 15px;
 }
 
-#player-box, #dealer-box {
-    border: 2px black;
-    padding: 10px;
+#player-cards, #dealer-cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 20px;
+}
+
+#button-container {
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    gap: 25px;
+}
+
+#player-score, #dealer-score {
+    color:white;
+    font-size: 20px;
+    margin-bottom: 10px;
 }
