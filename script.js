@@ -12,15 +12,30 @@ const player = blackGame['player']
 
 function deal() {
     if (blackGame['turnsOver'] === false) {
-    blackGame['player']['score'] = 0;
-    blackGame['dealer']['score'] = 0;
+        blackGame['player']['score'] = 0;
+        blackGame['dealer']['score'] = 0;
 
     document.querySelector(blackGame['player']['div']).innerHTML = '';
     document.querySelector(blackGame['dealer']['div']).innerHTML = '';
 
+    const dealerFirstCard = randomCard();
+    const dealerSecondCard = randomCard();
+    showCard(dealerFirstCard, blackGame['dealer']);
+    showCard(dealerSecondCard, blackGame['dealer']);
+    updateScore(dealerFirstCard, blackGame['dealer']);
+    updateScore(dealerSecondCard, blackGame['dealer']);
+    showScore(blackGame['dealer']);
+
+    if ((dealerFirstCard === 'A' && ['K', 'Q', 'J', '10'].includes(dealerSecondCard)) ||
+        (dealerSecondCard === 'A' && ['K','Q', 'J', '10'].includes(dealerFirstCard))) {
+        document.querySelector('#game-result').textContent = "Sorry, dealer has Blackjack.";
+        document.querySelector('#game-result').style.color = 'black';
+        blackGame['turnsOver'] = true;
+        return;
+        }
+    
     for(let i = 0; i < 2; i++) {
         hit(blackGame['player']);
-        hit(blackGame['dealer']);
     }
 }
 }
@@ -38,31 +53,34 @@ function hit(activePlayer) {
     showCard(card, activePlayer);
     updateScore(card, activePlayer);
     showScore(activePlayer);
-    if (checkBust(activePlayer)) {
-        blackGame['turnsOver'] = true;
-        showResult('dealer');
-    } else {
+
+    if (activePlayer === blackGame['player'] && activePlayer['score'] === 21) {
         endGame();
-        }
+        showResults('player');
+    } else if (activePlayer === blackGame['dealer'] && activePlayer['score'] === 21) {
+        endGame()
+        showResults('dealer');
     }
 }
-function stay(activePlayer) {
-    if (blackGame['turnsOver'] === false) {
+}
+function stay() {
+    if (blackGame['turnsOver'] === true) {
+        blackGame['stay'] = true
         dealerTurn();
     }
+    
     blackGame['stay'] = true;
     while (blackGame['dealer']['score'] < 17 && blackGame['stay'] === true) {
         let card = randomCard();
-        showCard(card, activePlayer);
-        updateScore(card, activePlayer);
-        showScore(activePlayer);
+        showCard(card, dealer);
+        updateScore(card, dealer);
+        showScore(dealer);
     }
 
     blackGame['turnsOver'] = true;
-    dealerTurn();
-
-    let winner = computeWinner()
+    let winner = computeWinner();
     showResult(winner);
+
 }
 function start() {
     blackGame['stay'] = false;
@@ -70,8 +88,6 @@ function start() {
     document.querySelector('#game-result').textContent = '';
     deal();
 }
-
-
 function randomCard() {
     let randomIndex = Math.floor(Math.random() * 13);
     return blackGame['cards'][randomIndex];
@@ -79,7 +95,13 @@ function randomCard() {
 
 function showCard(card, activePlayer) {
     let cardDiv = document.createElement('div');
-    cardDiv.innerText = card;
+    cardDiv.className = 'card'
+
+    let cardNumber = document.createElement('div');
+    cardNumber.className = 'card-number';
+    cardNumber.innerText = card;
+
+    cardDiv.appendChild(cardNumber);
     document.querySelector(activePlayer['div']).appendChild(cardDiv);
 }
 
@@ -94,12 +116,11 @@ function updateScore(card, activePlayer) {
     } else {
         activePlayer['score'] += blackGame['cardMenu'][card];
     }
-    if (activePlayer['score'] > 21 && activePlayer['aces'] > 0) {
+    while (activePlayer['score'] > 21 && activePlayer['aces'] > 0) {
         activePlayer['score'] -= 10;
         activePlayer['aces'] -= 1;
     }
 }
-        
 function endGame() {
     let winner;
     if (blackGame['player']['score'] > 21) {
@@ -124,16 +145,20 @@ function computeWinner() {
     } else {
         winner = 'draw';
     }
-    showResult(winner);}
+    return winner;
+}
 
 function showResult(winner) {
     let message, color;
     if(winner === 'player') {
-        message = 'WINNER WINNER CHICKEN DINNER, YOU WON';
+        message = 'WINNER WINNER CHICKEN DINNER';
         color = 'gold';
     } else if (winner === 'dealer') {
-        message = 'dealer has high card, you lose';
+        message = 'Dealer has the better hand, you lose';
         color = 'black';
+    } else if (winner === 'draw') {
+        message = 'It is a tie! Both players have the same score';
+        color = 'gray';
     }
     document.querySelector('#game-result').textContent = message;
     document.querySelector('#game-result').style.color = color;
@@ -142,8 +167,8 @@ function showResult(winner) {
 
 function showScore(activePlayer) {
     if (activePlayer['score'] > 21) {
-        document.querySelector(activePlayer['scoreSpan']).textContent = "BUST!";
-        document.querySelector(activePlayer['scoreSpan']).style.color = 'white';
+        document.querySelector(activePlayer['scoreSpan']).textContent = "That is a Bust";
+        document.querySelector(activePlayer['scoreSpan']).style.color = 'gold';
         blackGame['turnsOver'] = true;
     } else {
         document.querySelector(activePlayer['scoreSpan']).textContent = activePlayer['score'];
@@ -154,7 +179,7 @@ function showScore(activePlayer) {
 }
 
 function dealerTurn() {
-    while(blackGame['dealer']['score'] < 17) {
+    while (blackGame['dealer']['score'] < 17) {
         let card = randomCard();
         showCard(card, blackGame['dealer']);
         updateScore(card, blackGame['dealer']);
@@ -163,7 +188,6 @@ function dealerTurn() {
     let winner = computeWinner();
     showResult(winner);
 }
-document.querySelector('#deal-button').addEventListener('click', deal);
 document.querySelector('#hit-button').addEventListener('click', () => hit(player));
 document.querySelector('#stay-button').addEventListener('click', () => stay(dealer));
 document.querySelector('#start-button').addEventListener('click', start);

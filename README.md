@@ -1,9 +1,9 @@
 # Casino-Blackjack
 Contains HTML, JavaScript, and CSS
 
-Try your luck in the casino at the Blackjack table! Beat the dealer to have the high card or even hit a Blackjack. See if luck is on your side.
+Try your luck in the casino at the Blackjack table! Beat the dealer and have the high card or even hit a Blackjack. See if luck is on your side.
 
-The object of the game is to be to closest to 21 while you compete against the dealers hand. Bet to see if you can double your money! If you hit blackjack (Ace + 10) you win, and recieve two and half times the amount of your bet. Both of the players cards will be flipped over, while only one of the dealers cards will be shown. If you go over 21, that is a bust and you lose the round and your money, If an Ace is played, that card represents both nummbers 11 and 1. The player then decides if they would like to hit (recieve an additional card) or stay (end their turn) or Double-Down (only recieve 1 additional card). If the Player does not bust (go over 21) the Dealer then reveals their additional card. If the Dealers cards add up to 16 or under, they then must hit and recieve an additional card. If the Dealers cards ever exceed 21 he immediately loses and the Player wins and recieves their money. If the Dealers cards ever equate to being between 17 and 21, you then compare hands to find the higher of the two hands. The higher of the two hands is the winner!
+The object of the game is to be to closest to 21 while you compete against the dealers hand. If you hit blackjack (Ace + 10) you win! Both of the players cards will be flipped over. If you go over 21, that is a bust and you lose the round, If an Ace is played, that card represents both nummbers 11 and 1. The player then decides if they would like to hit (recieve an additional card) or stay (end their turn). If the Player does not bust (go over 21) the Dealer then initiates their turn. If the Dealers cards add up to 16 or under, they then must hit and recieve an additional card. If the Dealers cards ever exceed 21 he immediately loses and the Player wins! If the Dealers cards ever equate to being between 17 and 21, you then compare hands to find the higher of the two hands. The higher of the two hands is the winner!
 
 
 // Pseudocode //
@@ -15,23 +15,19 @@ The object of the game is to be to closest to 21 while you compete against the d
 5. If both the Players and the Dealers cards are less than or equal to 21, they then compare hands to see who has the higher hand
 6. The loser of the hand loses the round.
 7. If you are dealt a Blackjack (Ace and 10) you automatically win
-8. If both the Dealer and the Players hands equate to the same value, it is a Push (Tie game), and you neither win nor lose your money.
+8. If both the Dealer and the Players hands equate to the same value, it is a Push (Tie game), and you neither win nor lose.
 9. Player then decides if they would like to continue playing. Play again?
 
 
 <<<<<<< HEAD
 MVP:
 =======
-MVP: 1) an animated image of "BLACKJACK" when you hit blackjack
+MVP: 1) Big title of "BLACKJACK" when you enter the page
 >>>>>>> 2177bd088760a042cb5b0b252b99eeb55b120091
      2) An image/message telling you if you if its a "win" or "bust"
-     3) click buttons for "hit", "stay", and "double down"
-     4) create a "credit" system for winning
-     5) Sound for Blackjack? (horns/triumphant sounds)
-     6) background will look to be a blackjack table 
-     7) Possibily may have casino sounds/white noise playing in the background while the game unfolds, to give immersive experience
-     8) Annimated Pit-boss that tries to throw you out like it's Robert DiNiro in Casino (just kidding)
-     9) annimate the card deck to look expensive (Venetian-like card deck)
+     3) click buttons for "hit", "stay", and "Start"
+     4) An Alert showing if either you or the dealer have hit a Blackjack
+     5)The overall functionality of the game- it flows properly
     
     
 
