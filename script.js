@@ -95,7 +95,13 @@ function randomCard() {
 
 function showCard(card, activePlayer) {
     let cardDiv = document.createElement('div');
-    cardDiv.innerText = card;
+    cardDiv.className = 'card'
+
+    let cardNumber = document.createElement('div');
+    cardNumber.className = 'card-number';
+    cardNumber.innerText = card;
+
+    cardDiv.appendChild(cardNumber);
     document.querySelector(activePlayer['div']).appendChild(cardDiv);
 }
 
@@ -162,7 +168,7 @@ function showResult(winner) {
 function showScore(activePlayer) {
     if (activePlayer['score'] > 21) {
         document.querySelector(activePlayer['scoreSpan']).textContent = "That is a Bust";
-        document.querySelector(activePlayer['scoreSpan']).style.color = 'white';
+        document.querySelector(activePlayer['scoreSpan']).style.color = 'gold';
         blackGame['turnsOver'] = true;
     } else {
         document.querySelector(activePlayer['scoreSpan']).textContent = activePlayer['score'];

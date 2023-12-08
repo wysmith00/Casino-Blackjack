@@ -4,7 +4,7 @@ Project Description: My game choice is Blackjack. Blackjack is a strategy card g
 
 MVP Goals: 
 1) As a player, I want my game to deal  the cards appropriately with the score being shown for the Player at all times so there is never confusion regarding your score.
-2) As a player, I want to be presented with the proper game choices. Buttons saying to "Hit" "Stay" or "Double Down"
+2) As a player, I want to be presented with the proper game choices. Buttons saying to "Hit" "Stay".
 3) As a player I want there to a be a click function for my chioces so I know they've been selected
 4) As a player, I want there to be a play again option when all game choices are exhausted and the round is over
 5) As a player I want the UI to be engaging like a casino, pleasant for the Player and wanting them to keep participating. 
