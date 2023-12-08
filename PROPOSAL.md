@@ -15,6 +15,12 @@ Stretch Goals:
 2) background sound/casino white noise to give the audience an immersive experience
 3) The card deck should have a royal appearence, looking expensive
 
+
+
+
+
+
+
 IceBox Goals:
 1) actual cards styled
 2) betting system
