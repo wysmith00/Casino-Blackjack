@@ -1,3 +1,8 @@
+3title-container {
+    text-align: center;
+    margin-top: px;
+}
+
 #player-score, #dealer-score {
     color: white;
     font-size: 75px;
@@ -10,6 +15,7 @@
     align-items: center;
     flex-direction: column;
     margin: 20px;
+    position: left;
 }
 
 #button-container {
@@ -22,6 +28,7 @@
     width: auto;
     gap: 25px;
     font-size: 60px;
+    background-color: darkgoldenrod;
 }
 
 #game-result {
@@ -34,6 +41,7 @@
     color: white;
     font-size: 20px;
     margin-bottom: 10px;
+    border: left;
 }
 
 body {

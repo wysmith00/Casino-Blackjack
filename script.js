@@ -41,11 +41,8 @@ function deal() {
 }
 
  function checkBust(activePlayer) {
-    if (activePlayer['score'] > 21) {
-        return true;
-    }
-    return false;
-}   
+    return activePlayer['score'] > 21;
+      }   
 
 function hit(activePlayer) {
     if (blackGame['turnsOver'] === false) {
@@ -56,10 +53,10 @@ function hit(activePlayer) {
 
     if (activePlayer === blackGame['player'] && activePlayer['score'] === 21) {
         endGame();
-        showResults('player');
+        showResult('player');
     } else if (activePlayer === blackGame['dealer'] && activePlayer['score'] === 21) {
         endGame()
-        showResults('dealer');
+        showResult('dealer');
     }
 }
 }
@@ -102,6 +99,11 @@ function showCard(card, activePlayer) {
 }
 
 function updateScore(card, activePlayer) {
+    if (activePlayer['score'] > 21) {
+        endGame();
+        return;
+    }
+
     if (card === 'A') {
         if (activePlayer['score'] + blackGame['cardMenu'][card][1] <= 21) {
             activePlayer['score'] += blackGame['cardMenu'][card][1];
@@ -112,12 +114,12 @@ function updateScore(card, activePlayer) {
     } else {
         activePlayer['score'] += blackGame['cardMenu'][card];
     }
+    
     if (activePlayer['score'] > 21 && activePlayer['aces'] > 0) {
         activePlayer['score'] -= 10;
         activePlayer['aces'] -= 1;
     }
-}
-        
+}        
 function endGame() {
     let winner;
     if (blackGame['player']['score'] > 21) {
@@ -131,8 +133,10 @@ function endGame() {
 }
 function computeWinner() {
     let winner;
-     if (blackGame['player']['score'] > 21) {
-        winner = 'dealer'
+    if (blackGame['player']['score'] === 21 && blackGame['dealer']['score'] === 21) {
+        winner = 'draw'
+    } else if (blackGame['player']['score'] > 21) {
+        winner = 'dealer';
     } else if (blackGame['dealer']['score'] > 21) {
         winner = 'player';
     } else if (blackGame['player']['score'] > blackGame['dealer']['score']) {
@@ -185,7 +189,7 @@ function dealerTurn() {
     let winner = computeWinner();
     showResult(winner);
 }
-document.querySelector('#deal-button').addEventListener('click', deal);
+
 document.querySelector('#hit-button').addEventListener('click', () => hit(player));
 document.querySelector('#stay-button').addEventListener('click', () => stay(dealer));
 document.querySelector('#start-button').addEventListener('click', start);
